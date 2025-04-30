@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contador</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #220c49;
+    }
+
+    button {
+      padding: 2rem;
+      border-radius: 8px;
+      background-color: #6495ED;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 50px;
+      color: #fff;
+      border-radius: 8px;
+      background-color: #6495ED;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .count-button {
+      width: 6rem;
+      height: 6rem;
+      font-size: 3rem;
+      background-color: #fff;
+      margin-right: 1rem;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h2 id="contador">0</h2>
+    <button onclick="diminuir()">-1</button>
+    <button onclick="aumentar()">+1</button>
+    <br><br>
+    <button onclick="resetar()">Reset</button>
+  </div>
+
+  <script>
+    let contador = 0;
+
+    function atualizarContador() {
+      const contadorSpan = document.getElementById("contador");
+      contadorSpan.innerText = contador;
+
+      if (contador > 0) {
+        contadorSpan.style.color = "#40E0D0"; // Azul claro
+      } else if (contador < 0) {
+        contadorSpan.style.color = "#DE3163"; // Vermelho rosa
+      } else {
+        contadorSpan.style.color = "#fff"; // Branco
+      }
+    }
+
+    function aumentar() {
+      if (contador < 11) {
+        contador++;
+        atualizarContador();
+        if (contador === 11) {
+          alert("Valor máximo obtido");
+        }
+      }
+    }
+
+    function diminuir() {
+      contador--;
+      atualizarContador();
+    }
+
+    function resetar() {
+      contador = 0;
+      atualizarContador();
+    }
+  </script>
+</body>
+</html>
+
